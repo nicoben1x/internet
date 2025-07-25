@@ -1,17 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-
     // Mobile Navbar Toggle
     const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navMenu   = document.getElementById('nav-menu');
+    const navLinks  = document.querySelectorAll('.nav-link');
 
     if (navToggle) {
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
         });
     }
-
-    // Close mobile menu when a link is clicked
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             if (navMenu.classList.contains('active')) {
@@ -20,27 +17,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Plans Carousel for Mobile
     const plansWrapper = document.querySelector('.plans-wrapper');
-    const prevButton = document.querySelector('.carousel-arrow.prev');
-    const nextButton = document.querySelector('.carousel-arrow.next');
+    const prevButton   = document.querySelector('.carousel-arrow.prev');
+    const nextButton   = document.querySelector('.carousel-arrow.next');
 
     if (plansWrapper && prevButton && nextButton) {
         const scrollAmount = () => {
-            // Scroll by the width of one card plus the gap
-            const planCard = plansWrapper.querySelector('.plan-card');
-            return planCard ? planCard.offsetWidth + 30 : 300;
+            const card = plansWrapper.querySelector('.plan-card');
+            return card ? card.offsetWidth + 30 : 300;
         };
 
         nextButton.addEventListener('click', () => {
             plansWrapper.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
         });
-
         prevButton.addEventListener('click', () => {
             plansWrapper.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
         });
 
-        // Hide/show arrows on mobile viewports only
         const toggleCarouselArrows = () => {
             if (window.innerWidth <= 768) {
                 prevButton.style.display = 'block';
@@ -50,10 +43,53 @@ document.addEventListener('DOMContentLoaded', function() {
                 nextButton.style.display = 'none';
             }
         };
-
-        // Initial check
         toggleCarouselArrows();
-        // Check on window resize
         window.addEventListener('resize', toggleCarouselArrows);
+
+        // —————————————
+        // SWIPE HORIZONTAL CONTROLADO + SCROLL VERTICAL LIBRE
+        let startX = 0;
+        let startY = 0;
+        let isHorizontalSwipe = null; // null hasta detectar
+
+        plansWrapper.addEventListener('touchstart', e => {
+            startX = e.changedTouches[0].screenX;
+            startY = e.changedTouches[0].screenY;
+            isHorizontalSwipe = null;
+        });
+
+        plansWrapper.addEventListener('touchmove', e => {
+            const currentX = e.changedTouches[0].screenX;
+            const currentY = e.changedTouches[0].screenY;
+            const dx = currentX - startX;
+            const dy = currentY - startY;
+
+            // Si aún no determinamos la dirección:
+            if (isHorizontalSwipe === null) {
+                isHorizontalSwipe = Math.abs(dx) > Math.abs(dy);
+            }
+
+            // Si es swipe horizontal, bloqueamos el scroll nativo
+            if (isHorizontalSwipe) {
+                e.preventDefault();
+            }
+            // Si es vertical, no hacemos nada para permitir el scroll de la página
+        }, { passive: false });
+
+        plansWrapper.addEventListener('touchend', e => {
+            if (!isHorizontalSwipe) return; // no es nuestro carrusel, es scroll de página
+
+            const endX = e.changedTouches[0].screenX;
+            const diff = startX - endX;
+            const minSwipeDistance = 50;
+
+            if (Math.abs(diff) > minSwipeDistance) {
+                if (diff > 0) {
+                    plansWrapper.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+                } else {
+                    plansWrapper.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+                }
+            }
+        });
     }
 });
