@@ -33,12 +33,11 @@ body {
 }
 
 .services-section {
-    padding: 120px 0 80px;
+    padding: 50px 0 60px;
 }
 
-section {
-    padding: 80px 0;
-}
+
+
 
 .section-title {
     font-size: 2.5rem;
@@ -49,8 +48,10 @@ section {
     margin-top: 0;
 }
 
-.contact-section .section-title {
-    padding: 20px;
+
+
+.section-title {
+    padding: 0px;
     margin-top: -20px;
 }
 
@@ -368,10 +369,6 @@ section {
     object-fit: contain;
     border-radius: 50%;
     padding: 20px;
-}
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
     margin: 0 auto 20px auto;
 }
 
@@ -462,7 +459,7 @@ section {
 /* ======== CONTACT SECTION ======== */
 .contact-section {
     background-color: var(--gray-bg);
-    padding: 80px 0;
+    padding: 50px 0;
 }
 
 .contact-wrapper {
@@ -496,6 +493,26 @@ section {
 .contact-form button {
     margin: 0 auto;
     display: block;
+}
+
+.contact-separator {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .contact-separator {
+        margin-top: 46px;
+    }
+}
+
+.separator-line {
+    width: 100px;
+    height: 2px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
 }
 
 .contact-info-map {
