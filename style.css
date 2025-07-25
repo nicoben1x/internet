@@ -171,9 +171,10 @@ body {
 
 .nav-toggle {
     display: none;
-    font-size: 1.5rem;
+    font-size: 2.15rem;
     color: var(--light-color);
     cursor: pointer;
+    padding: 10px;
 }
 
 .nav-right {
