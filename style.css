@@ -32,6 +32,10 @@ body {
     padding: 0 20px;
 }
 
+.services-section {
+    padding: 120px 0 80px;
+}
+
 section {
     padding: 80px 0;
 }
@@ -40,20 +44,21 @@ section {
     font-size: 2.5rem;
     color: var(--dark-color);
     text-align: center;
-    margin-bottom: 10px;
-    padding-bottom: 70px;
-    margin-top: -70px;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+    margin-top: 0;
 }
 
 .contact-section .section-title {
     padding: 20px;
+    margin-top: -20px;
 }
 
 .section-subtitle {
     font-size: 1.2rem;
     color: #666;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .btn-primary {
@@ -176,14 +181,86 @@ section {
     gap: 20px;
 }
 
+
+
+
 /* ======== HERO SECTION ======== */
 .hero-section {
-    background-color: var(--light-color);
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-image: url('assets/images/fondo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* CAMBIA ESTO: */
+    background-attachment: scroll; /* Ahora el fondo se moverá con el scroll */
+    /* DEJA EL RESTO COMO ESTÁ */
+    position: relative;
+    z-index: 0;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 100vh;
+        /* background-size: cover; ya está en el general */
+        /* background-position: center; ya está en el general */
+        width: 100vw;
+        height: 100vh;
+        /* display: block; mantener solo si es necesario para el contenido interno */
+    }
+    
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 2rem;
+        box-sizing: border-box;
+    }
+    
+    .hero-content {
+        padding: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.6); /* Capa translúcida para que el texto resalte */
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2;
+    position: relative;
+    color: #333;
+    background: transparent; /* Asegura que el contenido no tenga un fondo propio */
 }
 
 .hero-title {
@@ -253,7 +330,6 @@ section {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */ /* Se puede usar si quieres distribuir el espacio uniformemente */
 }
 
 .plan-card .btn-primary {
@@ -281,12 +357,12 @@ section {
 .plan-description {
     font-size: 1rem;
     color: #666;
-    margin-bottom: 30px; /* Mantener un margen inferior */
-    flex-grow: 1; /* NUEVO: Permite que ocupe todo el espacio disponible */
-    display: flex; /* NUEVO: Convierte la descripción en un contenedor flex */
-    align-items: center; /* NUEVO: Centra verticalmente el contenido dentro de la descripción */
-    justify-content: center; /* NUEVO: Centra horizontalmente el contenido dentro de la descripción */
-    text-align: center; /* Asegura el centrado de texto si es multilínea */
+    margin-bottom: 30px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .carousel-arrow {
@@ -313,6 +389,13 @@ section {
 
 .carousel-arrow.prev { left: -20px; }
 .carousel-arrow.next { right: -20px; }
+
+
+
+
+.extra-benefits{
+    margin-top: 9px;
+}
 
 
 /* ======== CONTACT SECTION ======== */
