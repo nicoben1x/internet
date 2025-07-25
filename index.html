@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Internet - Internet en tu Hogar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="#inicio" class="nav-logo">Nueva Internet</a>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="#acerca" class="nav-link">Acerca de</a></li>
+                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                    <li class="nav-item-dropdown">
+                        <a href="#" class="nav-link">Más <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Políticas de privacidad</a></li>
+                            <li><a href="#servicios">Planes y precios</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <a href="#" class="btn-login">Iniciar sesión</a>
+                <div class="nav-toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Nueva Internet</h1>
+                <p class="hero-subtitle">Internet en tu hogar</p>
+            </div>
+        </section>
+
+        <section id="acerca" class="about-section">
+            <div class="container">
+                <p class="about-text">
+                    “Somos una empresa de telecomunicaciones que brinda servicio por fibra óptica desde agosto del 2020. Brindamos un servicio tal como nos gustaría tener a nosotros mismos.”
+                </p>
+            </div>
+        </section>
+
+        <section id="servicios" class="services-section">
+            <div class="container">
+                <h2 class="section-title">Planes Residenciales</h2>
+                <p class="section-subtitle">Internet de alta velocidad</p>
+
+                <div class="plans-carousel-container">
+                    <div class="plans-wrapper">
+                        <div class="plan-card">
+                            <div class="plan-img-container" style="background-color: #d6eaff;">
+                                </div>
+                            <h3 class="plan-title">Residencial 100MB</h3>
+                            <p class="plan-description">Internet por fibra óptica, baja latencia, sin microcortes, ideal para home office.</p>
+                            <a href="#" class="btn-primary">Contratar ahora</a>
+                        </div>
+                        <div class="plan-card">
+                            <div class="plan-img-container" style="background-color: #cce0ff;">
+                                </div>
+                            <h3 class="plan-title">Residencial 200MB</h3>
+                            <p class="plan-description">Internet por fibra óptica, baja latencia, sin microcortes, 200 megas de subida como de bajada, ideal para gaming.</p>
+                            <a href="#" class="btn-primary">Contratar ahora</a>
+                        </div>
+                        <div class="plan-card">
+                            <div class="plan-img-container" style="background-color: #b3d1ff;">
+                                </div>
+                            <h3 class="plan-title">Residencial 300MB</h3>
+                            <p class="plan-description">Internet por fibra óptica, baja latencia, sin microcortes, 300 megas de subida como de bajada, ideal para streaming y descargas.</p>
+                            <a href="#" class="btn-primary">Contratar ahora</a>
+                        </div>
+                    </div>
+                    <button class="carousel-arrow prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-arrow next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Contacto</h2>
+                <div class="contact-wrapper">
+                    <div class="contact-form-container">
+                        <form action="#" class="contact-form">
+                            <input type="text" name="nombre" placeholder="Nombre" required>
+                            <input type="email" name="email" placeholder="Email" required>
+                            <input type="tel" name="telefono" placeholder="Teléfono">
+                            <input type="text" name="direccion" placeholder="Dirección">
+                            <input type="text" name="asunto" placeholder="Asunto">
+                            <textarea name="mensaje" placeholder="Mensaje"></textarea>
+                            <button type="submit" class="btn-primary">Enviar</button>
+                        </form>
+                    </div>
+                    <div class="contact-info-map">
+                        <div class="contact-info">
+                            <p><i class="fas fa-map-marker-alt"></i> Oficina en Gay Lussac 1023, Pablo Nogués.</p>
+                            <p><i class="fas fa-envelope"></i> nuevainternet1023@gmail.com</p>
+                            <p><i class="fas fa-phone-alt"></i> Soporte técnico 11 5835-3221</p>
+                        </div>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3289.789139880829!2d-58.69539382426532!3d-34.45763957299691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc998f3e2a58c9%3A0x629555315518b57!2sGay%20Lussac%201023%2C%20B1613DGE%20Ing.%20Pablo%20Nogu%C3%A9s%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1721867175510!5m2!1ses-419!2sar"
+                                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <a href="https://wa.me/541144446666" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer class="footer">
+        <p>©2020 por Nueva Internet.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
