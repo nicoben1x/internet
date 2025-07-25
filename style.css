@@ -219,20 +219,26 @@ section {
 .hero-subtitle {
     font-size: 1.5rem;
     color: #555;
+    margin-bottom: 30px;
 }
 
-/* ======== ABOUT US SECTION ======== */
-.about-section {
-    background-color: var(--gray-bg);
+.btn-cta {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    padding: 15px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
 }
 
-.about-text {
-    font-size: 1.3rem;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    font-style: italic;
-    color: #444;
+.btn-cta:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* ======== SERVICES SECTION ======== */
