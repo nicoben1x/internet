@@ -165,6 +165,21 @@ body {
     transition: background-color 0.3s ease;
 }
 
+.btn-version {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--light-color);
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    margin-right: 15px;
+}
+
+.btn-version:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
 .btn-login:hover {
     background-color: #0056b3;
 }

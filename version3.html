@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Internet - Conectate con el futuro</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* Tipografía base */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1E1E1E; /* Negro suave */
+            color: #F3F4F6; /* Gris claro para texto */
+        }
+
+        /* Colores personalizados */
+        :root {
+            --mint: #A2E4B8;
+            --cta-green: #39FF14; /* Verde lima vibrante para CTAs */
+            --dark-gray: #333333;
+            --soft-black: #1E1E1E;
+        }
+
+        /* Animación para entrada de secciones */
+        .section-hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .section-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilo para el menú móvil */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        /* Estilo para el degradado del hero */
+        .hero-gradient {
+            background: linear-gradient(to top, rgba(30, 30, 30, 1) 0%, rgba(30, 30, 30, 0.6) 50%, rgba(30, 30, 30, 0) 100%);
+        }
+        
+        /* Estilo para el botón principal */
+        .cta-button {
+            background-color: var(--cta-green);
+            color: #1E1E1E; /* Texto oscuro para mejor contraste con el verde lima */
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+        }
+        .cta-button:hover {
+            background-color: #32E013;
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-soft-black text-gray-100">
+
+    <!-- ===== HEADER ===== -->
+    <header id="header" class="bg-[#1E1E1E]/80 backdrop-blur-sm fixed top-0 left-0 w-full z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">
+                Nueva<span style="color: var(--mint);">Internet</span>
+            </a>
+            
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#inicio" class="text-gray-300 hover:text-white transition-colors duration-300">Inicio</a>
+                <a href="#planes" class="text-gray-300 hover:text-white transition-colors duration-300">Planes</a>
+                <a href="#nosotros" class="text-gray-300 hover:text-white transition-colors duration-300">Nosotros</a>
+                <a href="#contacto" class="text-gray-300 hover:text-white transition-colors duration-300">Contacto</a>
+                <a href="#planes" class="bg-[#A2E4B8] text-black font-semibold px-5 py-2 rounded-lg hover:bg-white transition-colors duration-300">Ver Planes</a>
+            </div>
+
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Menú lateral móvil -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-64 bg-[#333333] z-40 pt-20 p-6 md:hidden">
+        <nav class="flex flex-col space-y-6">
+            <a href="#inicio" class="text-gray-200 hover:text-white text-lg">Inicio</a>
+            <a href="#planes" class="text-gray-200 hover:text-white text-lg">Planes</a>
+            <a href="#nosotros" class="text-gray-200 hover:text-white text-lg">Nosotros</a>
+            <a href="#contacto" class="text-gray-200 hover:text-white text-lg">Contacto</a>
+            <a href="#planes" class="mt-4 bg-[#A2E4B8] text-center text-black font-semibold px-5 py-2 rounded-lg hover:bg-white transition-colors duration-300">Ver Planes</a>
+        </nav>
+    </div>
+
+    <main id="main-content">
+        <!-- ===== SECCIÓN INICIO (HERO) ===== -->
+        <section id="inicio" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop" 
+                     alt="Fondo abstracto de tecnología" 
+                     class="w-full h-full object-cover opacity-30">
+                <div class="absolute inset-0 hero-gradient"></div>
+            </div>
+            <div class="relative z-10 px-6 section-hidden">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+                    Conectate con el <span style="color: var(--mint);">futuro</span>.
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+                    Internet sin cortes, sin vueltas. Velocidad, confiabilidad y atención humana cuando la necesitás.
+                </p>
+                <a href="#planes" class="cta-button inline-block font-bold text-lg px-8 py-4 rounded-lg mt-8">
+                    Conocé Nuestros Planes
+                </a>
+            </div>
+        </section>
+
+        <!-- ===== SECCIÓN PLANES ===== -->
+        <section id="planes" class="py-20 md:py-32 bg-[#333333]">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 section-hidden">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Planes a tu medida</h2>
+                    <p class="text-lg text-gray-400 mt-2">Elegí la velocidad que necesitás para volar en la red.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Plan 100mb -->
+                    <div class="bg-[#1E1E1E] p-8 rounded-xl shadow-lg flex flex-col transform hover:-translate-y-2 transition-transform duration-300 section-hidden">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold text-white">Plan Esencial</h3>
+                            <p class="text-sm" style="color: var(--mint);">Para navegar y redes sociales</p>
+                        </div>
+                        <div class="my-4 text-center">
+                            <p class="text-5xl font-extrabold text-white">100<span class="text-2xl font-medium text-gray-400">mbps</span></p>
+                        </div>
+                        <p class="text-gray-300 mt-4 text-sm flex-grow">Ideal para quienes navegan, miran redes y disfrutan contenido sin interrupciones.</p>
+                        <a href="#contacto" class="cta-button block w-full text-center font-semibold py-3 rounded-lg mt-6">Contratar ahora</a>
+                    </div>
+
+                    <!-- Plan 200mb -->
+                    <div class="bg-[#1E1E1E] p-8 rounded-xl shadow-lg flex flex-col transform hover:-translate-y-2 transition-transform duration-300 section-hidden" style="transition-delay: 100ms;">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold text-white">Plan Home Office</h3>
+                            <p class="text-sm" style="color: var(--mint);">Perfecto para trabajar y estudiar</p>
+                        </div>
+                        <div class="my-4 text-center">
+                            <p class="text-5xl font-extrabold text-white">200<span class="text-2xl font-medium text-gray-400">mbps</span></p>
+                        </div>
+                        <p class="text-gray-300 mt-4 text-sm flex-grow">Doble de potencia para videollamadas fluidas, trabajo en la nube y series en HD sin pausas.</p>
+                        <a href="#contacto" class="cta-button block w-full text-center font-semibold py-3 rounded-lg mt-6">Contratar ahora</a>
+                    </div>
+                    
+                    <!-- Plan 300mb -->
+                    <div class="bg-[#1E1E1E] p-8 rounded-xl shadow-lg flex flex-col transform hover:-translate-y-2 transition-transform duration-300 section-hidden" style="transition-delay: 200ms;">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold text-white">Plan Familia Conectada</h3>
+                            <p class="text-sm" style="color: var(--mint);">Streaming y múltiples dispositivos</p>
+                        </div>
+                        <div class="my-4 text-center">
+                            <p class="text-5xl font-extrabold text-white">300<span class="text-2xl font-medium text-gray-400">mbps</span></p>
+                        </div>
+                        <p class="text-gray-300 mt-4 text-sm flex-grow">Ideal para hogares con varios dispositivos conectados al mismo tiempo. Streaming en 4K y gaming ocasional.</p>
+                        <a href="#contacto" class="cta-button block w-full text-center font-semibold py-3 rounded-lg mt-6">Contratar ahora</a>
+                    </div>
+
+                    <!-- Plan 400mb -->
+                    <div class="bg-[#1E1E1E] p-8 rounded-xl shadow-lg flex flex-col transform hover:-translate-y-2 transition-transform duration-300 section-hidden" style="transition-delay: 300ms;">
+                         <div class="mb-4">
+                            <h3 class="text-xl font-bold text-white">Plan Gamer Pro</h3>
+                            <p class="text-sm" style="color: var(--mint);">Jugá online sin lag</p>
+                        </div>
+                        <div class="my-4 text-center">
+                            <p class="text-5xl font-extrabold text-white">400<span class="text-2xl font-medium text-gray-400">mbps</span></p>
+                        </div>
+                        <p class="text-gray-300 mt-4 text-sm flex-grow">Subí de nivel con una conexión de baja latencia, optimizada para gaming competitivo y streaming sin límites.</p>
+                        <a href="#contacto" class="cta-button block w-full text-center font-semibold py-3 rounded-lg mt-6">Contratar ahora</a>
+                    </div>
+
+                    <!-- Plan 500mb -->
+                    <div class="bg-[#1E1E1E] p-8 rounded-xl shadow-lg flex flex-col transform hover:-translate-y-2 transition-transform duration-300 section-hidden" style="transition-delay: 400ms;">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold text-white">Plan Creador</h3>
+                            <p class="text-sm" style="color: var(--mint);">Subí y descargá a máxima velocidad</p>
+                        </div>
+                        <div class="my-4 text-center">
+                            <p class="text-5xl font-extrabold text-white">500<span class="text-2xl font-medium text-gray-400">mbps</span></p>
+                        </div>
+                        <p class="text-gray-300 mt-4 text-sm flex-grow">Carga y descarga archivos pesados en segundos. La herramienta definitiva para creadores y profesionales.</p>
+                        <a href="#contacto" class="cta-button block w-full text-center font-semibold py-3 rounded-lg mt-6">Contratar ahora</a>
+                    </div>
+
+                    <!-- Plan 600mb -->
+                    <div class="bg-[#A2E4B8] p-8 rounded-xl shadow-2xl flex flex-col transform hover:-translate-y-2 transition-transform duration-300 section-hidden" style="transition-delay: 500ms;">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold text-black">Plan Ultra Performance</h3>
+                            <p class="text-sm text-gray-800">El máximo poder para tu conexión</p>
+                        </div>
+                        <div class="my-4 text-center">
+                            <p class="text-5xl font-extrabold text-black">600<span class="text-2xl font-medium text-gray-700">mbps</span></p>
+                        </div>
+                        <p class="text-gray-900 mt-4 text-sm flex-grow">Nuestro plan más veloz. Rendimiento extremo para usuarios y empresas que no aceptan menos.</p>
+                        <a href="#contacto" class="bg-[#1E1E1E] block w-full text-center text-white font-semibold py-3 rounded-lg mt-6 hover:bg-black">Contratar ahora</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECCIÓN NOSOTROS ===== -->
+        <section id="nosotros" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12 section-hidden">
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?q=80&w=2069&auto=format&fit=crop" 
+                             alt="Equipo técnico trabajando" 
+                             class="rounded-xl shadow-lg w-full h-full object-cover">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Conexión local, soporte <span style="color: var(--mint);">humano</span>.</h2>
+                        <p class="text-lg text-gray-300 leading-relaxed">
+                            Somos una empresa local nacida en Pablo Nogués con la misión de ofrecer internet estable, rápido y con soporte humano real. Creemos que la conexión con el mundo también es conexión con la comunidad.
+                        </p>
+                        <p class="text-lg text-gray-300 leading-relaxed mt-4">
+                            No somos una corporación gigante, somos tus vecinos. Y estamos acá para asegurarnos de que tengas la mejor conexión posible.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECCIÓN CONTACTO ===== -->
+        <section id="contacto" class="py-20 md:py-32 bg-[#333333]">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 section-hidden">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">¿Hablamos?</h2>
+                    <p class="text-lg text-gray-400 mt-2">Envianos tu consulta y te contactamos a la brevedad.</p>
+                </div>
+                <div class="flex flex-col lg:flex-row gap-12">
+                    <!-- Formulario -->
+                    <div class="lg:w-1/2 section-hidden">
+                        <form action="#" class="space-y-6">
+                            <div>
+                                <label for="name" class="sr-only">Nombre</label>
+                                <input type="text" name="name" id="name" placeholder="Nombre" class="w-full bg-[#1E1E1E] border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[#A2E4B8] transition">
+                            </div>
+                            <div>
+                                <label for="contact-info" class="sr-only">Email o Teléfono</label>
+                                <input type="text" name="contact-info" id="contact-info" placeholder="Email o Teléfono" class="w-full bg-[#1E1E1E] border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[#A2E4B8] transition">
+                            </div>
+                            <div>
+                                <label for="address" class="sr-only">Dirección</label>
+                                <input type="text" name="address" id="address" placeholder="Dirección (para verificar cobertura)" class="w-full bg-[#1E1E1E] border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[#A2E4B8] transition">
+                            </div>
+                            <div>
+                                <label for="message" class="sr-only">Mensaje</label>
+                                <textarea name="message" id="message" rows="4" placeholder="Mensaje" class="w-full bg-[#1E1E1E] border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[#A2E4B8] transition"></textarea>
+                            </div>
+                            <button type="submit" class="cta-button w-full font-bold py-3 px-6 rounded-lg">
+                                Enviar Consulta
+                            </button>
+                        </form>
+                    </div>
+                    <!-- Info y Mapa -->
+                    <div class="lg:w-1/2 section-hidden">
+                        <div class="space-y-6 text-lg">
+                            <div class="flex items-center gap-4">
+                                <i data-lucide="mail" class="w-6 h-6" style="color: var(--mint);"></i>
+                                <a href="mailto:nuevainternet1023@gmail.com" class="text-gray-300 hover:text-white">nuevainternet1023@gmail.com</a>
+                            </div>
+                             <div class="flex items-center gap-4">
+                                <i data-lucide="phone" class="w-6 h-6" style="color: var(--mint);"></i>
+                                <span class="text-gray-300">Soporte técnico: 11 5835-3221</span>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="map-pin" class="w-6 h-6 mt-1" style="color: var(--mint);"></i>
+                                <span class="text-gray-300">Gay Lussac 1023, Pablo Nogués, Buenos Aires</span>
+                            </div>
+                        </div>
+                        <div class="mt-8 rounded-lg overflow-hidden shadow-lg">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3290.119842852504!2d-58.69460502426619!3d-34.44917177301777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc9965022e38c7%3A0x633917c80a2b5e0!2sGay-Lussac%201023%2C%20B1613%20Ing.%20Pablo%20Nogu%C3%A9s%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1721968032145!5m2!1ses-419!2sar" 
+                                width="100%" 
+                                height="250" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-[#1E1E1E] border-t border-gray-700 py-12">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <a href="#" class="text-2xl font-bold text-white">
+                Nueva<span style="color: var(--mint);">Internet</span>
+            </a>
+            <div class="flex justify-center space-x-6 my-6">
+                <a href="#inicio" class="hover:text-white transition-colors">Inicio</a>
+                <a href="#planes" class="hover:text-white transition-colors">Planes</a>
+                <a href="#nosotros" class="hover:text-white transition-colors">Nosotros</a>
+                <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
+            </div>
+            <div class="flex justify-center space-x-6 my-6">
+                <a href="#" aria-label="Facebook" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="facebook" class="w-6 h-6"></i></a>
+                <a href="#" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                <a href="#" aria-label="Twitter" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="twitter" class="w-6 h-6"></i></a>
+            </div>
+            <p>&copy; 2024 Nueva Internet. Todos los derechos reservados.</p>
+            <p class="mt-2 text-sm">Gay Lussac 1023, Pablo Nogués, Buenos Aires.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Lógica del menú móvil ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuOpenIcon = document.getElementById('menu-open-icon');
+            const menuCloseIcon = document.getElementById('menu-close-icon');
+            const mainContent = document.getElementById('main-content');
+            const navLinks = mobileMenu.querySelectorAll('a');
+
+            function toggleMenu() {
+                mobileMenu.classList.toggle('open');
+                menuOpenIcon.classList.toggle('hidden');
+                menuCloseIcon.classList.toggle('hidden');
+                document.body.classList.toggle('overflow-hidden');
+            }
+
+            mobileMenuButton.addEventListener('click', toggleMenu);
+            
+            navLinks.forEach(link => link.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('open')) {
+                    toggleMenu();
+                }
+            }));
+            mainContent.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('open')) {
+                    toggleMenu();
+                }
+            });
+
+            // --- Animaciones al hacer scroll ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('section-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const hiddenElements = document.querySelectorAll('.section-hidden');
+            hiddenElements.forEach(el => observer.observe(el));
+
+            // --- Cambio de fondo del header al hacer scroll ---
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-[#1E1E1E]/95');
+                } else {
+                    header.classList.remove('bg-[#1E1E1E]/95');
+                }
+            });
+
+            // --- Inicialización de iconos Lucide ---
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
