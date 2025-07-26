@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nueva Internet - Conexión Rápida y Confiable</title>
+    <title>Nueva Internet - Conectate con el futuro</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,320 +11,383 @@
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
     
-    <!-- Favicon (ejemplo) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
-
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
     <style>
-        /* Estilo base para usar la fuente Inter */
+        /* Tipografía base */
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #1E1E1E; /* Negro suave */
+            color: #F3F4F6; /* Gris claro para texto */
         }
-        /* Clase para las animaciones de entrada */
-        .fade-in-section {
+
+        /* Colores personalizados */
+        :root {
+            --mint: #A2E4B8;
+            --cta-green: #39FF14; /* Verde lima vibrante para CTAs */
+            --dark-gray: #333333;
+            --soft-black: #1E1E1E;
+        }
+
+        /* Animación para entrada de secciones */
+        .section-hidden {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        .fade-in-section.is-visible {
+
+        .section-visible {
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Estilo para el menú móvil */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        /* Estilo para el degradado del hero */
+        .hero-gradient {
+            background: linear-gradient(to top, rgba(30, 30, 30, 1) 0%, rgba(30, 30, 30, 0.6) 50%, rgba(30, 30, 30, 0) 100%);
+        }
+        
+        /* Estilo para el botón principal */
+        .cta-button {
+            background-color: var(--cta-green);
+            color: #1E1E1E; /* Texto oscuro para mejor contraste con el verde lima */
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+        }
+        .cta-button:hover {
+            background-color: #32E013;
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.5);
+        }
     </style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-soft-black text-gray-100">
 
-    <!-- ===== Header & Navigation ===== -->
-    <header id="header" class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo -->
-            <a href="#inicio" class="text-2xl font-bold text-blue-600">
-                Nueva Internet
+    <!-- ===== HEADER ===== -->
+    <header id="header" class="bg-[#1E1E1E]/80 backdrop-blur-sm fixed top-0 left-0 w-full z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">
+                Nueva<span style="color: var(--mint);">Internet</span>
             </a>
-
-            <!-- Navegación para Desktop -->
-            <nav class="hidden md:flex items-center space-x-6">
-                <a href="#inicio" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Inicio</a>
-                <a href="#planes" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Planes</a>
-                <a href="#nosotros" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Nosotros</a>
-                <a href="#contacto" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Contacto</a>
-            </nav>
             
-            <a href="#planes" class="hidden md:inline-block bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition-transform duration-300 hover:scale-105">
-                Contratar
-            </a>
-
-            <!-- Botón de Menú Hamburguesa para Móvil -->
-            <button id="menu-btn" class="md:hidden z-50">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </button>
-        </div>
-
-        <!-- Menú Móvil -->
-        <div id="mobile-menu" class="hidden md:hidden absolute top-0 left-0 w-full bg-white shadow-lg transition-transform duration-300 ease-in-out transform -translate-y-full">
-            <div class="container mx-auto px-6 py-4 pt-24">
-                <nav class="flex flex-col items-center space-y-6 text-lg">
-                    <a href="#inicio" class="mobile-link text-gray-700 hover:text-blue-600">Inicio</a>
-                    <a href="#planes" class="mobile-link text-gray-700 hover:text-blue-600">Planes</a>
-                    <a href="#nosotros" class="mobile-link text-gray-700 hover:text-blue-600">Nosotros</a>
-                    <a href="#contacto" class="mobile-link text-gray-700 hover:text-blue-600">Contacto</a>
-                    <a href="#planes" class="mt-4 bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300">
-                        Ver Planes
-                    </a>
-                </nav>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#inicio" class="text-gray-300 hover:text-white transition-colors duration-300">Inicio</a>
+                <a href="#planes" class="text-gray-300 hover:text-white transition-colors duration-300">Planes</a>
+                <a href="#nosotros" class="text-gray-300 hover:text-white transition-colors duration-300">Nosotros</a>
+                <a href="#contacto" class="text-gray-300 hover:text-white transition-colors duration-300">Contacto</a>
+                <a href="#planes" class="bg-[#A2E4B8] text-black font-semibold px-5 py-2 rounded-lg hover:bg-white transition-colors duration-300">Ver Planes</a>
             </div>
-        </div>
+
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+        </nav>
     </header>
 
-    <main>
-        <!-- ===== Sección Inicio (Hero) ===== -->
-        <section id="inicio" class="relative min-h-screen flex items-center justify-center bg-blue-50 overflow-hidden pt-20">
-            <!-- Fondo animado sutil -->
-            <div class="absolute inset-0 z-0">
-                <div class="absolute top-0 left-0 w-96 h-96 bg-blue-200 rounded-full opacity-30 -translate-x-1/4 -translate-y-1/4 animate-pulse"></div>
-                <div class="absolute bottom-0 right-0 w-96 h-96 bg-sky-200 rounded-full opacity-30 translate-x-1/4 translate-y-1/4 animate-pulse-slow"></div>
-            </div>
-            <style>
-                @keyframes pulse-slow { 50% { opacity: .15; transform: scale(0.95) translate(20%, 20%); } }
-                .animate-pulse-slow { animation: pulse-slow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-            </style>
+    <!-- Menú lateral móvil -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-64 bg-[#333333] z-40 pt-20 p-6 md:hidden">
+        <nav class="flex flex-col space-y-6">
+            <a href="#inicio" class="text-gray-200 hover:text-white text-lg">Inicio</a>
+            <a href="#planes" class="text-gray-200 hover:text-white text-lg">Planes</a>
+            <a href="#nosotros" class="text-gray-200 hover:text-white text-lg">Nosotros</a>
+            <a href="#contacto" class="text-gray-200 hover:text-white text-lg">Contacto</a>
+            <a href="#planes" class="mt-4 bg-[#A2E4B8] text-center text-black font-semibold px-5 py-2 rounded-lg hover:bg-white transition-colors duration-300">Ver Planes</a>
+        </nav>
+    </div>
 
-            <div class="container mx-auto px-6 text-center z-10">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
-                    La conexión que merecés.
+    <main id="main-content">
+        <!-- ===== SECCIÓN INICIO (HERO) ===== -->
+        <section id="inicio" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop" 
+                     alt="Fondo abstracto de tecnología" 
+                     class="w-full h-full object-cover opacity-30">
+                <div class="absolute inset-0 hero-gradient"></div>
+            </div>
+            <div class="relative z-10 px-6 section-hidden">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+                    Conectate con el <span style="color: var(--mint);">futuro</span>.
                 </h1>
-                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                    Velocidad, confianza y un compromiso real con vos. Navegá, trabajá y disfrutá sin límites con Nueva Internet.
+                <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+                    Internet sin cortes, sin vueltas. Velocidad, confiabilidad y atención humana cuando la necesitás.
                 </p>
-                <a href="#planes" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-700 transition-transform duration-300 hover:scale-105 inline-block">
-                    Descubrí nuestros planes
+                <a href="#planes" class="cta-button inline-block font-bold text-lg px-8 py-4 rounded-lg mt-8">
+                    Conocé Nuestros Planes
                 </a>
             </div>
         </section>
 
-        <!-- ===== Sección Planes de Internet ===== -->
-        <section id="planes" class="py-20 bg-white">
+        <!-- ===== SECCIÓN PLANES ===== -->
+        <section id="planes" class="py-20 md:py-32 bg-[#333333]">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12 fade-in-section">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Planes pensados para vos</h2>
-                    <p class="text-lg text-gray-600 mt-2">Elegí la velocidad que se adapta a tu ritmo de vida.</p>
+                <div class="text-center mb-16 section-hidden">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Planes a tu medida</h2>
+                    <p class="text-lg text-gray-400 mt-2">Elegí la velocidad que necesitás para volar en la red.</p>
                 </div>
-
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
                     <!-- Plan 100mb -->
-                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-8 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 fade-in-section">
-                        <h3 class="text-2xl font-bold text-blue-600">100 Mbps</h3>
-                        <p class="font-semibold text-gray-800 my-4">Plan Esencial</p>
-                        <p class="text-gray-600 mb-6">Perfecto para navegar, redes sociales y streaming en HD sin interrupciones.</p>
-                        <button class="w-full bg-blue-100 text-blue-700 font-semibold py-3 rounded-lg hover:bg-blue-200 transition-colors duration-300">Solicitar ahora</button>
+                    <div class="bg-[#1E1E1E] p-8 rounded-xl shadow-lg flex flex-col transform hover:-translate-y-2 transition-transform duration-300 section-hidden">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold text-white">Plan Esencial</h3>
+                            <p class="text-sm" style="color: var(--mint);">Para navegar y redes sociales</p>
+                        </div>
+                        <div class="my-4 text-center">
+                            <p class="text-5xl font-extrabold text-white">100<span class="text-2xl font-medium text-gray-400">mbps</span></p>
+                        </div>
+                        <p class="text-gray-300 mt-4 text-sm flex-grow">Ideal para quienes navegan, miran redes y disfrutan contenido sin interrupciones.</p>
+                        <a href="#contacto" class="cta-button block w-full text-center font-semibold py-3 rounded-lg mt-6">Contratar ahora</a>
                     </div>
 
                     <!-- Plan 200mb -->
-                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-8 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 fade-in-section" style="transition-delay: 100ms;">
-                        <h3 class="text-2xl font-bold text-blue-600">200 Mbps</h3>
-                        <p class="font-semibold text-gray-800 my-4">Plan Avanzado</p>
-                        <p class="text-gray-600 mb-6">Ideal para home office, clases online y múltiples dispositivos conectados a la vez.</p>
-                        <button class="w-full bg-blue-100 text-blue-700 font-semibold py-3 rounded-lg hover:bg-blue-200 transition-colors duration-300">Solicitar ahora</button>
+                    <div class="bg-[#1E1E1E] p-8 rounded-xl shadow-lg flex flex-col transform hover:-translate-y-2 transition-transform duration-300 section-hidden" style="transition-delay: 100ms;">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold text-white">Plan Home Office</h3>
+                            <p class="text-sm" style="color: var(--mint);">Perfecto para trabajar y estudiar</p>
+                        </div>
+                        <div class="my-4 text-center">
+                            <p class="text-5xl font-extrabold text-white">200<span class="text-2xl font-medium text-gray-400">mbps</span></p>
+                        </div>
+                        <p class="text-gray-300 mt-4 text-sm flex-grow">Doble de potencia para videollamadas fluidas, trabajo en la nube y series en HD sin pausas.</p>
+                        <a href="#contacto" class="cta-button block w-full text-center font-semibold py-3 rounded-lg mt-6">Contratar ahora</a>
                     </div>
-
-                    <!-- Plan 300mb (Destacado) -->
-                    <div class="bg-blue-600 text-white rounded-xl p-8 text-center shadow-2xl scale-105 hover:shadow-blue-300 transition-all duration-300 fade-in-section" style="transition-delay: 200ms;">
-                        <span class="bg-white text-blue-600 text-xs font-bold px-3 py-1 rounded-full uppercase">Más Popular</span>
-                        <h3 class="text-2xl font-bold text-white mt-4">300 Mbps</h3>
-                        <p class="font-semibold text-blue-100 my-4">Plan Familia</p>
-                        <p class="text-blue-100 mb-6">La mejor opción para streaming 4K, gaming online y una familia ultra conectada.</p>
-                        <button class="w-full bg-white text-blue-600 font-semibold py-3 rounded-lg hover:bg-gray-100 transition-colors duration-300">Solicitar ahora</button>
+                    
+                    <!-- Plan 300mb -->
+                    <div class="bg-[#1E1E1E] p-8 rounded-xl shadow-lg flex flex-col transform hover:-translate-y-2 transition-transform duration-300 section-hidden" style="transition-delay: 200ms;">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold text-white">Plan Familia Conectada</h3>
+                            <p class="text-sm" style="color: var(--mint);">Streaming y múltiples dispositivos</p>
+                        </div>
+                        <div class="my-4 text-center">
+                            <p class="text-5xl font-extrabold text-white">300<span class="text-2xl font-medium text-gray-400">mbps</span></p>
+                        </div>
+                        <p class="text-gray-300 mt-4 text-sm flex-grow">Ideal para hogares con varios dispositivos conectados al mismo tiempo. Streaming en 4K y gaming ocasional.</p>
+                        <a href="#contacto" class="cta-button block w-full text-center font-semibold py-3 rounded-lg mt-6">Contratar ahora</a>
                     </div>
 
                     <!-- Plan 400mb -->
-                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-8 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 fade-in-section" style="transition-delay: 300ms;">
-                        <h3 class="text-2xl font-bold text-blue-600">400 Mbps</h3>
-                        <p class="font-semibold text-gray-800 my-4">Plan Gamer</p>
-                        <p class="text-gray-600 mb-6">Baja latencia y máxima velocidad para que ganes todas tus partidas sin lag.</p>
-                        <button class="w-full bg-blue-100 text-blue-700 font-semibold py-3 rounded-lg hover:bg-blue-200 transition-colors duration-300">Solicitar ahora</button>
+                    <div class="bg-[#1E1E1E] p-8 rounded-xl shadow-lg flex flex-col transform hover:-translate-y-2 transition-transform duration-300 section-hidden" style="transition-delay: 300ms;">
+                         <div class="mb-4">
+                            <h3 class="text-xl font-bold text-white">Plan Gamer Pro</h3>
+                            <p class="text-sm" style="color: var(--mint);">Jugá online sin lag</p>
+                        </div>
+                        <div class="my-4 text-center">
+                            <p class="text-5xl font-extrabold text-white">400<span class="text-2xl font-medium text-gray-400">mbps</span></p>
+                        </div>
+                        <p class="text-gray-300 mt-4 text-sm flex-grow">Subí de nivel con una conexión de baja latencia, optimizada para gaming competitivo y streaming sin límites.</p>
+                        <a href="#contacto" class="cta-button block w-full text-center font-semibold py-3 rounded-lg mt-6">Contratar ahora</a>
                     </div>
 
                     <!-- Plan 500mb -->
-                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-8 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 fade-in-section" style="transition-delay: 400ms;">
-                        <h3 class="text-2xl font-bold text-blue-600">500 Mbps</h3>
-                        <p class="font-semibold text-gray-800 my-4">Plan Creador</p>
-                        <p class="text-gray-600 mb-6">Subí y bajá archivos pesados en segundos. Ideal para creadores de contenido.</p>
-                        <button class="w-full bg-blue-100 text-blue-700 font-semibold py-3 rounded-lg hover:bg-blue-200 transition-colors duration-300">Solicitar ahora</button>
+                    <div class="bg-[#1E1E1E] p-8 rounded-xl shadow-lg flex flex-col transform hover:-translate-y-2 transition-transform duration-300 section-hidden" style="transition-delay: 400ms;">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold text-white">Plan Creador</h3>
+                            <p class="text-sm" style="color: var(--mint);">Subí y descargá a máxima velocidad</p>
+                        </div>
+                        <div class="my-4 text-center">
+                            <p class="text-5xl font-extrabold text-white">500<span class="text-2xl font-medium text-gray-400">mbps</span></p>
+                        </div>
+                        <p class="text-gray-300 mt-4 text-sm flex-grow">Carga y descarga archivos pesados en segundos. La herramienta definitiva para creadores y profesionales.</p>
+                        <a href="#contacto" class="cta-button block w-full text-center font-semibold py-3 rounded-lg mt-6">Contratar ahora</a>
                     </div>
 
                     <!-- Plan 600mb -->
-                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-8 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 fade-in-section" style="transition-delay: 500ms;">
-                        <h3 class="text-2xl font-bold text-blue-600">600 Mbps</h3>
-                        <p class="font-semibold text-gray-800 my-4">Plan Premium</p>
-                        <p class="text-gray-600 mb-6">La máxima potencia para empresas y usuarios que exigen lo mejor de lo mejor.</p>
-                        <button class="w-full bg-blue-100 text-blue-700 font-semibold py-3 rounded-lg hover:bg-blue-200 transition-colors duration-300">Solicitar ahora</button>
+                    <div class="bg-[#A2E4B8] p-8 rounded-xl shadow-2xl flex flex-col transform hover:-translate-y-2 transition-transform duration-300 section-hidden" style="transition-delay: 500ms;">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold text-black">Plan Ultra Performance</h3>
+                            <p class="text-sm text-gray-800">El máximo poder para tu conexión</p>
+                        </div>
+                        <div class="my-4 text-center">
+                            <p class="text-5xl font-extrabold text-black">600<span class="text-2xl font-medium text-gray-700">mbps</span></p>
+                        </div>
+                        <p class="text-gray-900 mt-4 text-sm flex-grow">Nuestro plan más veloz. Rendimiento extremo para usuarios y empresas que no aceptan menos.</p>
+                        <a href="#contacto" class="bg-[#1E1E1E] block w-full text-center text-white font-semibold py-3 rounded-lg mt-6 hover:bg-black">Contratar ahora</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== Sección Acerca de Nosotros ===== -->
-        <section id="nosotros" class="py-20 bg-blue-50">
+        <!-- ===== SECCIÓN NOSOTROS ===== -->
+        <section id="nosotros" class="py-20 md:py-32">
             <div class="container mx-auto px-6">
-                <div class="flex flex-col md:flex-row items-center gap-12 fade-in-section">
+                <div class="flex flex-col md:flex-row items-center gap-12 section-hidden">
                     <div class="md:w-1/2">
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Somos de acá, como vos.</h2>
-                        <p class="text-lg text-gray-600 mb-4">
-                            Nacimos en Pablo Nogués con una misión clara: ofrecer un servicio de internet que realmente funcione, con un trato cercano y un soporte técnico que te entienda. Creemos en el poder de la conexión para unir a nuestra comunidad y potenciar el crecimiento local.
-                        </p>
-                        <p class="text-lg text-gray-600 mb-6">
-                            Nuestros valores son la transparencia, el compromiso y la confianza. Estamos en <span class="font-semibold">Gay Lussac 1023, Pablo Nogués</span>, siempre listos para ayudarte.
-                        </p>
-                        <a href="#contacto" class="text-blue-600 font-semibold hover:underline">¡Queremos conocerte! &rarr;</a>
+                        <img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?q=80&w=2069&auto=format&fit=crop" 
+                             alt="Equipo técnico trabajando" 
+                             class="rounded-xl shadow-lg w-full h-full object-cover">
                     </div>
                     <div class="md:w-1/2">
-                        <img src="https://placehold.co/600x400/e0f2fe/3b82f6?text=Nuestra+Oficina" alt="Imagen de una oficina moderna y amigable" class="rounded-xl shadow-lg w-full h-auto">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Conexión local, soporte <span style="color: var(--mint);">humano</span>.</h2>
+                        <p class="text-lg text-gray-300 leading-relaxed">
+                            Somos una empresa local nacida en Pablo Nogués con la misión de ofrecer internet estable, rápido y con soporte humano real. Creemos que la conexión con el mundo también es conexión con la comunidad.
+                        </p>
+                        <p class="text-lg text-gray-300 leading-relaxed mt-4">
+                            No somos una corporación gigante, somos tus vecinos. Y estamos acá para asegurarnos de que tengas la mejor conexión posible.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== Sección Contacto ===== -->
-        <section id="contacto" class="py-20 bg-white">
+        <!-- ===== SECCIÓN CONTACTO ===== -->
+        <section id="contacto" class="py-20 md:py-32 bg-[#333333]">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12 fade-in-section">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">¿Tenés alguna duda?</h2>
-                    <p class="text-lg text-gray-600 mt-2">Contactanos o visitanos. Estamos para ayudarte.</p>
+                <div class="text-center mb-16 section-hidden">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">¿Hablamos?</h2>
+                    <p class="text-lg text-gray-400 mt-2">Envianos tu consulta y te contactamos a la brevedad.</p>
                 </div>
-
-                <div class="flex flex-col lg:flex-row gap-10 fade-in-section">
-                    <!-- Formulario de Contacto -->
-                    <div class="lg:w-1/2 bg-gray-50 p-8 rounded-xl border border-gray-200">
-                        <h3 class="text-2xl font-semibold mb-6">Envianos tu consulta</h3>
-                        <form action="#" method="POST">
-                            <div class="mb-4">
-                                <label for="name" class="block text-gray-700 font-medium mb-2">Nombre</label>
-                                <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                <div class="flex flex-col lg:flex-row gap-12">
+                    <!-- Formulario -->
+                    <div class="lg:w-1/2 section-hidden">
+                        <form action="#" class="space-y-6">
+                            <div>
+                                <label for="name" class="sr-only">Nombre</label>
+                                <input type="text" name="name" id="name" placeholder="Nombre" class="w-full bg-[#1E1E1E] border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[#A2E4B8] transition">
                             </div>
-                            <div class="mb-4">
-                                <label for="contact" class="block text-gray-700 font-medium mb-2">Email o Teléfono</label>
-                                <input type="text" id="contact" name="contact" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Tu email o número de teléfono">
+                            <div>
+                                <label for="contact-info" class="sr-only">Email o Teléfono</label>
+                                <input type="text" name="contact-info" id="contact-info" placeholder="Email o Teléfono" class="w-full bg-[#1E1E1E] border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[#A2E4B8] transition">
                             </div>
-                            <div class="mb-4">
-                                <label for="address" class="block text-gray-700 font-medium mb-2">Dirección</label>
-                                <input type="text" id="address" name="address" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Para verificar cobertura">
+                            <div>
+                                <label for="address" class="sr-only">Dirección</label>
+                                <input type="text" name="address" id="address" placeholder="Dirección (para verificar cobertura)" class="w-full bg-[#1E1E1E] border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[#A2E4B8] transition">
                             </div>
-                            <div class="mb-6">
-                                <label for="message" class="block text-gray-700 font-medium mb-2">Mensaje</label>
-                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"></textarea>
+                            <div>
+                                <label for="message" class="sr-only">Mensaje</label>
+                                <textarea name="message" id="message" rows="4" placeholder="Mensaje" class="w-full bg-[#1E1E1E] border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[#A2E4B8] transition"></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-transform duration-300 hover:scale-105">
+                            <button type="submit" class="cta-button w-full font-bold py-3 px-6 rounded-lg">
                                 Enviar Consulta
                             </button>
                         </form>
                     </div>
-
-                    <!-- Mapa de Google -->
-                    <div class="lg:w-1/2 h-96 lg:h-auto rounded-xl overflow-hidden shadow-lg">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3289.878516584281!2d-58.68580568477413!3d-34.45532598049828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc995f35954a7d%3A0x6281f447e7e8b6d!2sGay-Lussac%201023%2C%20B1613%20Pablo%20Nogues%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1678886453123!5m2!1ses-419!2sar"
-                            width="100%"
-                            height="100%"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                    <!-- Info y Mapa -->
+                    <div class="lg:w-1/2 section-hidden">
+                        <div class="space-y-6 text-lg">
+                            <div class="flex items-center gap-4">
+                                <i data-lucide="mail" class="w-6 h-6" style="color: var(--mint);"></i>
+                                <a href="mailto:nuevainternet1023@gmail.com" class="text-gray-300 hover:text-white">nuevainternet1023@gmail.com</a>
+                            </div>
+                             <div class="flex items-center gap-4">
+                                <i data-lucide="phone" class="w-6 h-6" style="color: var(--mint);"></i>
+                                <span class="text-gray-300">Soporte técnico: 11 5835-3221</span>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="map-pin" class="w-6 h-6 mt-1" style="color: var(--mint);"></i>
+                                <span class="text-gray-300">Gay Lussac 1023, Pablo Nogués, Buenos Aires</span>
+                            </div>
+                        </div>
+                        <div class="mt-8 rounded-lg overflow-hidden shadow-lg">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3290.119842852504!2d-58.69460502426619!3d-34.44917177301777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc9965022e38c7%3A0x633917c80a2b5e0!2sGay-Lussac%201023%2C%20B1613%20Ing.%20Pablo%20Nogu%C3%A9s%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1721968032145!5m2!1ses-419!2sar" 
+                                width="100%" 
+                                height="250" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ===== Footer ===== -->
-    <footer class="bg-gray-900 text-white">
-        <div class="container mx-auto px-6 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-                <!-- Info Empresa -->
-                <div>
-                    <h4 class="text-xl font-bold text-white mb-2">Nueva Internet</h4>
-                    <p class="text-gray-400">Tu conexión con el futuro. <br>Gay Lussac 1023, Pablo Nogués.</p>
-                </div>
-                <!-- Contacto -->
-                <div>
-                    <h5 class="font-semibold text-lg mb-2">Contacto</h5>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>Email: <a href="mailto:nuevainternet1023@gmail.com" class="hover:text-blue-400 transition-colors">nuevainternet1023@gmail.com</a></li>
-                        <li>Soporte Técnico: <a href="tel:1158353221" class="hover:text-blue-400 transition-colors">11 5835-3221</a></li>
-                    </ul>
-                </div>
-                <!-- Redes Sociales -->
-                <div>
-                    <h5 class="font-semibold text-lg mb-2">Seguinos</h5>
-                    <div class="flex justify-center md:justify-start space-x-4 mt-2">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.465c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm6.406-11.845a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z" clip-rule="evenodd" /></svg>
-                        </a>
-                    </div>
-                </div>
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-[#1E1E1E] border-t border-gray-700 py-12">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <a href="#" class="text-2xl font-bold text-white">
+                Nueva<span style="color: var(--mint);">Internet</span>
+            </a>
+            <div class="flex justify-center space-x-6 my-6">
+                <a href="#inicio" class="hover:text-white transition-colors">Inicio</a>
+                <a href="#planes" class="hover:text-white transition-colors">Planes</a>
+                <a href="#nosotros" class="hover:text-white transition-colors">Nosotros</a>
+                <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
-                <p>&copy; 2025 Nueva Internet. Todos los derechos reservados.</p>
+            <div class="flex justify-center space-x-6 my-6">
+                <a href="#" aria-label="Facebook" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="facebook" class="w-6 h-6"></i></a>
+                <a href="#" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                <a href="#" aria-label="Twitter" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="twitter" class="w-6 h-6"></i></a>
             </div>
+            <p>&copy; 2024 Nueva Internet. Todos los derechos reservados.</p>
+            <p class="mt-2 text-sm">Gay Lussac 1023, Pablo Nogués, Buenos Aires.</p>
         </div>
     </footer>
 
-
     <script>
-        // ===== Lógica para el Menú Móvil =====
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Lógica del menú móvil ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuOpenIcon = document.getElementById('menu-open-icon');
+            const menuCloseIcon = document.getElementById('menu-close-icon');
+            const mainContent = document.getElementById('main-content');
+            const navLinks = mobileMenu.querySelectorAll('a');
 
-        function toggleMenu() {
-            const isHidden = mobileMenu.classList.contains('hidden');
-            if (isHidden) {
-                mobileMenu.classList.remove('hidden');
-                setTimeout(() => {
-                    mobileMenu.classList.remove('-translate-y-full');
-                }, 10); // Pequeño delay para que la transición funcione
-            } else {
-                mobileMenu.classList.add('-translate-y-full');
-                setTimeout(() => {
-                    mobileMenu.classList.add('hidden');
-                }, 300); // Coincide con la duración de la transición
+            function toggleMenu() {
+                mobileMenu.classList.toggle('open');
+                menuOpenIcon.classList.toggle('hidden');
+                menuCloseIcon.classList.toggle('hidden');
+                document.body.classList.toggle('overflow-hidden');
             }
-        }
 
-        menuBtn.addEventListener('click', toggleMenu);
-        // Cierra el menú al hacer clic en un enlace
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', toggleMenu);
-        });
-
-        // ===== Lógica para Animaciones de Entrada al hacer Scroll =====
-        const sections = document.querySelectorAll('.fade-in-section');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
+            mobileMenuButton.addEventListener('click', toggleMenu);
+            
+            navLinks.forEach(link => link.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('open')) {
+                    toggleMenu();
+                }
+            }));
+            mainContent.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('open')) {
+                    toggleMenu();
                 }
             });
-        }, {
-            rootMargin: '0px',
-            threshold: 0.1
-        });
 
-        sections.forEach(section => {
-            observer.observe(section);
-        });
+            // --- Animaciones al hacer scroll ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('section-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
 
+            const hiddenElements = document.querySelectorAll('.section-hidden');
+            hiddenElements.forEach(el => observer.observe(el));
+
+            // --- Cambio de fondo del header al hacer scroll ---
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-[#1E1E1E]/95');
+                } else {
+                    header.classList.remove('bg-[#1E1E1E]/95');
+                }
+            });
+
+            // --- Inicialización de iconos Lucide ---
+            lucide.createIcons();
+        });
     </script>
-
 </body>
 </html>
