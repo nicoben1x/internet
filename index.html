@@ -3,152 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nueva Internet - Internet en tu Hogar</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Seleccionar Versión - Nueva Internet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
 </head>
-<body>
-
-    <header class="header">
-        <nav class="navbar">
-            <a href="#inicio" class="nav-logo">Nueva Internet</a>
-            <div class="nav-menu" id="nav-menu">
-                <ul class="nav-list">
-                    <li><a href="#inicio" class="nav-link">Inicio</a></li>
-
-                    <li><a href="#servicios" class="nav-link">Planes</a></li>
-                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
-
-                </ul>
-            </div>
-            <div class="nav-right">
-                
-                <a href="#" class="btn-login">Iniciar sesión</a>
-                <div class="nav-toggle" id="nav-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <section id="inicio" class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-title">Viví la experiencia de navegar sin límites.</h1>
-                <p class="hero-subtitle">Instalación exprés, atención personalizada y velocidad real.
-                    Planes desde 100 hasta 300 megas para todo tipo de hogares.</p>
-                <a href="#servicios" class="btn-cta">Ver Planes</a>
-            </div>
-        </section>
-
-
-        <section id="servicios" class="services-section">
-            <div class="container">
-                <h2 class="section-title">El Plan Perfecto para Cada Hogar</h2>
-                <p class="section-subtitle">Elegí velocidad, estabilidad y libertad sin interrupciones</p>
-        
-                <div class="plans-carousel-container">
-                    <div class="plans-wrapper">
-                        <!-- Plan 100MB -->
-                        <div class="plan-card">
-                            <div class="plan-img-container">
-                                <img src="assets/images/100mb.png" alt="100MB" class="plan-speed-image">
-                            </div>
-                           
-                            <h3 class="plan-title">Plan Smart – 100MB</h3>
-                            <p class="plan-description">
-                                Ideal para el día a día: trabajá desde casa, navegá sin interrupciones y conectá múltiples dispositivos con total estabilidad.
-                            </p>
-                            <a href="#" class="btn-primary">Quiero este plan</a>
-                        </div>
-        
-                        <!-- Plan 200MB -->
-                        <div class="plan-card">
-                            <div class="plan-img-container">
-                                <img src="assets/images/200mb.png" alt="200MB" class="plan-speed-image">
-                            </div>
-                            
-                            <h3 class="plan-title">Plan Gamer – 200MB</h3>
-                            <p class="plan-description">
-                                Conexión ultra estable y simétrica: 200 megas de subida y bajada, para que juegues online sin lag, incluso mientras otros usan internet.
-                            </p>
-                            <a href="#" class="btn-primary">Quiero este plan</a>
-                        </div>
-        
-                        <!-- Plan 300MB -->
-                        <div class="plan-card">
-                            <div class="plan-img-container">
-                                <img src="assets/images/300mb.png" alt="300MB" class="plan-speed-image">
-                            </div>
-                           
-                            <h3 class="plan-title">Plan Ultra – 300MB</h3>
-                            <p class="plan-description">
-                                La máxima velocidad para los más exigentes: ideal para streaming en 4K, videollamadas, descargas pesadas y casas con muchos dispositivos.
-                            </p>
-                            <a href="#" class="btn-primary">Quiero este plan</a>
-                        </div>
-                    </div>
-        
-                    <!-- Controles del carrusel -->
-                    <button class="carousel-arrow prev"><i class="fas fa-chevron-left"></i></button>
-                    <button class="carousel-arrow next"><i class="fas fa-chevron-right"></i></button>
-                </div>
-        
-                <!-- Beneficios adicionales (opcional) -->
-                <div class="extra-benefits">
-                    <p class="guarantee-text">✓ Instalación express incluida</p>
-                    <p class="guarantee-text">✓ Sin cláusulas de permanencia</p>
-                    <p class="guarantee-text">✓ Soporte técnico local</p>
-                </div>
-            </div>
-        </section>
-        
-
-        <section id="contacto" class="contact-section">
-            <div class="container">
-                <h2 class="section-title">Contacto</h2>
-                <div class="contact-wrapper">
-                    <div class="contact-form-container">
-                        <form action="#" class="contact-form">
-                            <input type="text" name="nombre" placeholder="Nombre" required>
-                            <input type="text" name="contacto" placeholder="Email o Teléfono" required>
-                            <input type="text" name="asunto" placeholder="Dirección">
-                            <textarea name="mensaje" placeholder="Mensaje"></textarea>
-                            <button type="submit" class="btn-cta">Enviar</button>
-                        </form>
-                        <div class="contact-separator">
-                            <div class="separator-line"></div>
-                            <div class="separator-line"></div>
-                            <div class="separator-line"></div>
-                        </div>
-                    </div>
-                    <div class="contact-info-map">
-                        <div class="contact-info">
-                            <p><i class="fas fa-map-marker-alt"></i> Oficina en Gay Lussac 1023, Pablo Nogués.</p>
-                            <p><i class="fas fa-envelope"></i> nuevainternet1023@gmail.com</p>
-                            <p><i class="fas fa-phone-alt"></i> Soporte técnico 11 5835-3221</p>
-                        </div>
-                        <div class="map-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3289.789139880829!2d-58.69539382426532!3d-34.45763957299691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc998f3e2a58c9%3A0x629555315518b57!2sGay%20Lussac%201023%2C%20B1613DGE%20Ing.%20Pablo%20Nogu%C3%A9s%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1721867175510!5m2!1ses-419!2sar"
-                                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <a href="https://wa.me/541144446666" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <footer class="footer">
-        <p>©2020 por Nueva Internet.</p>
-    </footer>
-
-    <script src="script.js"></script>
+<body class="bg-gray-900 text-white flex items-center justify-center h-screen">
+    <div class="text-center p-8 bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full">
+        <h1 class="text-4xl font-bold mb-2">Bienvenido a Nueva Internet</h1>
+        <p class="text-lg text-gray-400 mb-8">Elige la versión del sitio que deseas explorar.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <a href="version1.html" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-6 rounded-lg text-lg transition-transform transform hover:scale-105">Versión 1.0</a>
+            <a href="version2.html" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-6 rounded-lg text-lg transition-transform transform hover:scale-105">Versión 2.0</a>
+            <a href="version3.html" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-4 px-6 rounded-lg text-lg transition-transform transform hover:scale-105">Versión 3.0</a>
+            <a href="version4.html" class="bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-6 rounded-lg text-lg transition-transform transform hover:scale-105">Versión 4.0</a>
+        </div>
+    </div>
 </body>
 </html>
